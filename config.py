@@ -2,7 +2,11 @@ import os
 
 class Config(object):
     DEBUG = True
-    MONGODB_URI = os.environ.get('MONGODB_URI', None)
+    MONGODB_DB = os.environ.get('MONGODB_DB', None)
+    MONGODB_HOST = os.environ.get('MONGODB_HOST', None)
+    MONGODB_PORT = int(os.environ.get('MONGODB_PORT', 0))
+    MONGODB_USERNAME = os.environ.get('MONGODB_USERNAME', None)
+    MONGODB_PASSWORD = os.environ.get('MONGODB_PASSWORD', None)
     SECRET_KEY = os.environ.get('SECRET_KEY', None)
     SECURITY_REGISTERABLE = True
     MAIL_SERVER = os.environ.get('MAIL_SERVER', None)
