@@ -2,6 +2,7 @@
 * deploy to heroku (with proper mail setup)
 * intro on home page
 * ability remove tags
+* tests that work on travis
 * Tags page
 * top taggers
 * ability to suspend all edits
