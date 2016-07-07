@@ -1,0 +1,11 @@
+*.pyc
+.DS_Store
+.Python
+bin
+include
+lib
+man
+pip-selfcheck.json
+.sass-cache
+legitag/assets/.sass-cache
+node_modules

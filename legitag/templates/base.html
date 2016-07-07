@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0, maximum-scale=1.0" />
+    <link href="{{url_for('static', filename='css/main.css')}}" rel="stylesheet" />
+    <script src="{{url_for('static', filename='vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor/foundation-sites/foundation.min.js')}}"></script>
+    <script src="{{url_for('static', filename='javascript/main.js')}}"></script>
+    <title>{% block title %}{% endblock %}</title>
+  {% block head %}
+  {% endblock %}
+</head>
+<body>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for message  in messages %}
+        <div class="alert-box alert">
+          {{ message }}&nbsp;
+        </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  
+  <header role="banner"  class="expanded row">
+    <div class="small-12 large-8 columns">
+      <h1>
+        <a href="{{url_for('index')}}">Legislation Tagger</a>
+        <small class="product-status"><span>Alpha</span></small>
+      </h1>
+      <nav role="navigation">
+        <p>
+         {% if current_user.is_authenticated %}
+            Signed in as {{current_user.name}}
+            <a href="{{ url_for('security.logout') }}">(Sign out)</a>
+          {% else %}
+            {% if security.registerable %}
+              <a href="{{ url_for('security.register') }}">Register</a>
+              or 
+              <a href="{{ url_for('security.login') }}">Login</a>
+            {% else %}
+              <a href="{{ url_for('security.login') }}">Login</a>
+            {% endif %}
+          {% endif %}
+        </p>
+        <ul class="menu">
+          <li{% if menu_item == 'tools' or not menu_item %} class="active"{% endif %}>
+            <a href="{{url_for('index')}}">Legislation</a>
+          </li>
+          <li{% if menu_item == 'tags'%} class="active"{% endif %}>
+            <a href="{{url_for('tags')}}">Tags</a>
+          </li>
+          <li{% if menu_item == 'about'%} class="active"{% endif %}>
+            <a href="{{url_for('about')}}">About</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main role="main">
+    {% block content %}{% endblock %}
+  </main>
+</body>

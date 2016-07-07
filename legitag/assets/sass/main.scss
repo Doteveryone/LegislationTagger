@@ -1,0 +1,145 @@
+@import 'foundation';
+@import '_settings.scss';
+@include foundation-everything;
+
+
+a {
+  text-decoration:underline;
+}
+
+dl {
+  dt{
+    margin-top:1rem;
+  }
+}
+
+code.multiline {
+  display:block;
+}
+
+header {
+  background-color:$primary-color;
+  padding-top:$global-padding * 0.75;
+  margin-bottom:$global-padding;
+  color:$white;
+  a, a:hover {
+    color:$white;
+    text-decoration: underline;
+  }
+  h1 {
+    padding-bottom:$global-padding / 3;
+    a, a:hover {
+      color:$white;
+      text-decoration:none;
+    }
+    small.product-status {
+      background:url(../images/logo-no-text-white.svg) no-repeat center center;
+      color:$primary-color;
+      text-transform:uppercase;
+      font-size: 10px;
+      padding:5px;
+      position: relative;
+      top:-14px;
+      left:-3px;
+    }
+  }
+  .menu {
+    background:$primary-color;
+    li a {
+      color:$white;
+      padding-bottom:$global-padding / 2;
+      text-decoration: none;
+      font-weight:$global-weight-bold;
+    }
+    li.active a {
+      background:$white;
+      color:$primary-color;
+    }
+  }
+  nav {
+    line-height:0;
+
+}
+}
+
+.product-message {
+  p{
+    font-size:$small-font-size;
+    color:$dark-gray;
+    border-bottom:solid 1px $medium-gray;
+    padding-bottom:$global-padding / 2;
+    padding-top:0;
+  }
+}
+
+table {
+  caption {
+    text-align:left;
+    font-size:20px;
+    @include breakpoint(medium) {
+      font-size:28px;
+    }
+  }
+  thead {
+    th {
+      vertical-align: middle;  
+    }
+  }
+}
+
+p.lead {
+  font-weight: 500;
+}
+
+a.button, button.button, input.button {
+   font-weight:bold;
+   text-decoration: none;
+}
+
+main {
+  min-height:400px;
+  padding-bottom: 2rem;
+}
+
+.callout.alert {
+  background:$callout-background;
+  border-left:solid 10px $alert-color;
+}
+
+.callout.success {
+  background:$callout-background;
+  border-left:solid 10px $success-color;
+}
+
+.callout.warning {
+  background:$callout-background;
+  border-left:solid 10px $warning-color;
+}
+.callout.secondary {
+  background:$light-gray;
+  border-left:solid 10px $secondary-color;
+}
+
+footer {
+  font-size:$small-font-size;
+  padding-top:$global-padding * 2;
+  padding-bottom:$global-padding / 2;
+  background-color:$white;
+  color:$dark-gray;
+  .logo {
+    img {
+      width:100px;
+      vertical-align: middle;
+      margin-top:$global-padding / 2;
+      margin-right:$global-padding;
+    }
+  }
+}
+
+.tabs-content {
+  margin-bottom: $global-padding * 2;
+}
+
+.tabs-title a {
+  text-decoration: none;
+}
