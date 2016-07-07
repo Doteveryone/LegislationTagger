@@ -1,7 +1,6 @@
 import unittest
 from legitag import app
 import os
-from nose.tools import nottest
 
 class TestApp(unittest.TestCase):
 
