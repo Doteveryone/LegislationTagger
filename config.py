@@ -20,7 +20,6 @@ class DevelopmentConfig(Config):
     MONGODB_DB = os.environ.get('MONGODB_DB', 'legicert')
     MONGODB_HOST = os.environ.get('MONGODB_HOST', 'localhost')
     MONGODB_PORT = int(os.environ.get('MONGODB_PORT', 27017))
-    
 
 
 class TestConfig(DevelopmentConfig):
