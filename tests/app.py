@@ -1,5 +1,5 @@
 import unittest
-from jobcert import app
+from legitag import app
 import os
 from nose.tools import nottest
 
