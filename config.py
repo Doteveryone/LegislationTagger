@@ -1,7 +1,7 @@
 import os
 
 class Config(object):
-    DEBUG = True
+    DEBUG = False
     MONGODB_DB = os.environ.get('MONGODB_DB', None)
     MONGODB_HOST = os.environ.get('MONGODB_HOST', None)
     MONGODB_PORT = int(os.environ.get('MONGODB_PORT', 0))

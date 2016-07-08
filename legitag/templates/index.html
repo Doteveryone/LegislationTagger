@@ -3,16 +3,26 @@
 {% block content %}
   <section class="row expanded">
     <div class="small-12 large-8 columns">
+      <h2>Make sense of EU/UK legislation</h2>
+      <p class="lead">
+        The vast majority of EU legislation is enacted by Statutory Instrument under section 2(2) of the European Communities Act 1972 (UK).
+      </p>
+      <p class="lead">
+        Many of these laws will need to be examined over the coming months, so <a href="https://doteveryone.org.uk">Doteveryone</a> has built Legislation Tagger to try and help make sense of it.
+      </p>
+      <h3>How it works</h3>
+      <p>
+        You read a <em>random</em> piece of legislation as record what policy areas you think it might cover and who it might affect.
+      </p>
       {% if current_user.is_authenticated %}
-        <a href="{{url_for('random_legislation')}}" class="button">Tag a random bit of legislation</a>
+      <p>
+        <a href="">Create an account to get started</a>
+      </p>
+      {% else %}
+        <p>
+          <a href="{{url_for('random_legislation')}}" class="button">Tag a random bit of legislation</a>  
+        </p>
       {% endif %}
-      <ul>
-        {% for legislation in legislations %}
-          <li>
-            <a href="{{url_for('legislation', id=legislation.id)}}">{{legislation.title}}</a>
-          </li>
-        {% endfor %}
-      </ul>    
     </div>  
   </section>
   

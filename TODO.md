@@ -1,6 +1,6 @@
 
-* deploy to heroku (with proper mail setup)
 * remove debug flag
+* confirm email account
 * intro on home page
 * ability remove tags
 * tests that work on travis
@@ -21,6 +21,7 @@
 * Download data page
 
 DONE:
+* deploy to heroku
 * link to home
 * Real name of user
 * Custom security screens
