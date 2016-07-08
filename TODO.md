@@ -2,7 +2,6 @@
 
 * note about commas & singular
 * confirm email account
-* intro on home page
 * ability remove tags
 * tests that work on travis
 * Tags page
@@ -19,9 +18,11 @@
 * add purpose tag?
 * xxs test
 * Search
+* clear data after adding tags
 * Download data page
 
 DONE:
+* intro on home page
 * tag for specific organisations
 * remove debug flag
 * deploy to heroku
