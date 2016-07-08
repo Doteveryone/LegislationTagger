@@ -1,6 +1,5 @@
 
 
-* note about commas & singular
 * confirm email account
 * ability remove tags
 * tests that work on travis
@@ -22,6 +21,8 @@
 * Download data page
 
 DONE:
+* note about commas & singular
+* Arbitary tags
 * intro on home page
 * tag for specific organisations
 * remove debug flag

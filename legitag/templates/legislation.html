@@ -12,22 +12,38 @@
     <div class="medium-4 columns">
       {% if current_user.is_authenticated %}
         <h2>Add new tags</h2>
+        <ul class="tabs" data-tabs id="tag-editing">
+          <li class="tabs-title is-active">
+            <a href="#tags-basic" aria-selected="true">Basic</a>
+          </li>
+          <li class="tabs-title">
+            <a href="#tags-advanced">Advanced</a>
+          </li>
+        </ul>
         <form action="" method="post">
-          {{ form.csrf_token }}
-          {{render_field(form.policy_area_tags)}}
-          <p class="help-text">{{form.policy_area_tags.description}}</p>
-          {{render_field(form.users_affected_tags)}}
-          <p class="help-text">{{form.users_affected_tags.description}}</p>
-          {{render_field(form.organisation_tags)}}
-          <p class="help-text">{{form.organisation_tags.description}}</p>
-          
-          <p>You can add multiple tags using commas (eg patient, doctor, supermarket). Please use singular, not plural (eg 'farmer' not 'farmers') </p>
-          
+          <div class="tabs-content" data-tabs-content="tag-editing">
+            {{ form.csrf_token }}
+            <div class="tabs-panel is-active" id="tags-basic">
+              {{render_field(form.policy_area_tags)}}
+              <p class="help-text">{{form.policy_area_tags.description}}</p>
+              {{render_field(form.users_affected_tags)}}
+              <p class="help-text">{{form.users_affected_tags.description}}</p>
+              {{render_field(form.organisation_tags)}}
+              <p class="help-text">{{form.organisation_tags.description}}</p>
+              
+              <p>You can add multiple tags using commas (eg patient, doctor, supermarket). Please use singular, not plural (eg 'farmer' not 'farmers') </p>
+            </div>
+            <div class="tabs-panel" id="tags-advanced">
+              {% for tag in form.advanced_tags %}
+                {{tag}}
+              {% endfor %}
+            </div>
+            
             {% if random %}
               <p>
                 <button type="submit" class="button expanded">Save and tag another</button>
               </p>
-              <p>
+              <p> 
                 <a href="{{url_for('random_legislation')}}">or skip this one</a>
               </p>
             {% else %}
@@ -35,7 +51,7 @@
                 <button type="submit" class="button expanded">Save</button>
               </p>
             {% endif %}
-          
+          </div>
         </form>
       {% endif %}
       <h3>Tags</h3>

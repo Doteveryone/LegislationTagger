@@ -52,7 +52,6 @@ def legislation(id):
 
         if not current_user.is_authenticated:
             abort(401)
-
         if form.validate():
             form = forms.TagForm(request.form)
 
@@ -78,6 +77,16 @@ def legislation(id):
                     tag = models.Tag()
                     tag.key = 'organisation'
                     tag.value = item.strip()
+                    legislation.append_tag(tag)
+
+            #custom
+            for item in form.advanced_tags.data:
+                key = item['key'].strip().lower()
+                value = item['value'].strip().lower()
+                if key != ''and value != '':
+                    tag = models.Tag()
+                    tag.key = key
+                    tag.value = value
                     legislation.append_tag(tag)
 
             legislation.save(current_user, "Added tags")
