@@ -1,5 +1,5 @@
 
-* tag for specific organisations
+
 * note about commas & singular
 * confirm email account
 * intro on home page
@@ -22,6 +22,7 @@
 * Download data page
 
 DONE:
+* tag for specific organisations
 * remove debug flag
 * deploy to heroku
 * link to home

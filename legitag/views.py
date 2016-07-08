@@ -54,17 +54,27 @@ def legislation(id):
 
             # policy areas
             for item in form.policy_area_tags.data.split(','):
-                tag = models.Tag()
-                tag.key = 'policy'
-                tag.value = item.strip()
-                legislation.append_tag(tag)
+                if item.strip() != '':
+                    tag = models.Tag()
+                    tag.key = 'policy'
+                    tag.value = item.strip()
+                    legislation.append_tag(tag)
 
             # users
             for item in form.policy_area_tags.data.split(','):
-                tag = models.Tag()
-                tag.key = 'user'
-                tag.value = item.strip()
-                legislation.append_tag(tag)
+                if item.strip() != '':
+                    tag = models.Tag()
+                    tag.key = 'user'
+                    tag.value = item.strip()
+                    legislation.append_tag(tag)
+
+            #organisations
+            for item in form.organisation_tags.data.split(','):
+                if item.strip() != '':
+                    tag = models.Tag()
+                    tag.key = 'organisation'
+                    tag.value = item.strip()
+                    legislation.append_tag(tag)
 
             legislation.save(current_user, "Added tags")
 
