@@ -26,9 +26,9 @@ class Tag(db.EmbeddedDocument):
     key = db.StringField(max_length=100, required=True)
     value = db.StringField(max_length=255, required=True)
 
-
 class Legislation(db.Document):
     title = db.StringField(max_length=255, required=True)
+    original_url = db.URLField(required=False, unique=True)
     html_url = db.URLField(required=False)
     pdf_url = db.URLField(required=False)
     created_at = db.DateTimeField(default=datetime.now, required=True)

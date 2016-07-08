@@ -1,5 +1,6 @@
 
 * deploy to heroku (with proper mail setup)
+* remove debug flag
 * intro on home page
 * ability remove tags
 * tests that work on travis

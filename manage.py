@@ -1,7 +1,7 @@
 from flask_script import Manager, prompt_bool
 from legitag import app, models
 import feedparser
-from mongoengine import connect
+from mongoengine import connect, DoesNotExist
 from time import sleep
 import re
 
@@ -32,22 +32,31 @@ def importdata():
             keep_going = False
         else:
             for item in result.entries:
-                legislation = models.Legislation()
-                legislation.title = item['title'][0:255]
+                exists = True
+                try:
+                    models.Legislation.objects.get(original_url=item['id'])
+                except DoesNotExist:
+                    exists = False
 
-                #handle case where there are english and welsh titles
-                if '<span xml:lang="en">' in legislation.title:
-                    match = re.match('<span xml:lang="en">(.*?)</span>', legislation.title)
-                    legislation.title = match.group(1)
+                if not exists:
+                    legislation = models.Legislation()
+                    legislation.title = item['title'][0:255]
+                    legislation.original_url = item['id']
 
-                for link in item.links:
-                    if link['rel'] == 'alternate':
-                        if link['type'] == 'application/xhtml+xml':
-                            legislation.html_url = link['href']
-                        if link['type'] == 'application/pdf':
-                            legislation.pdf_url = link['href']
-                legislation.save()
-                print "Saved %s " % legislation.title
+
+                    #handle case where there are english and welsh titles
+                    if '<span xml:lang="en">' in legislation.title:
+                        match = re.match('<span xml:lang="en">(.*?)</span>', legislation.title)
+                        legislation.title = match.group(1)
+
+                    for link in item.links:
+                        if link['rel'] == 'alternate':
+                            if link['type'] == 'application/xhtml+xml':
+                                legislation.html_url = link['href']
+                            if link['type'] == 'application/pdf':
+                                legislation.pdf_url = link['href']
+                    legislation.save()
+                    print "Saved %s " % legislation.title
 
             page = page + 1
             sleep(0.5)
