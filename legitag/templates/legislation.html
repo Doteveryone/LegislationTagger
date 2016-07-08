@@ -12,11 +12,11 @@
     <div class="medium-4 columns">
       {% if current_user.is_authenticated %}
         <h2>Add new tags</h2>
-        <p>Add multiple tags using commas (eg patient, doctor, supermarket). Please use singular, not plural (eg 'farmer' not 'farmers') </p>
         <form action="" method="post">
           {{ form.csrf_token }}
           {{render_field(form.policy_area_tags)}}
           {{render_field(form.users_affected_tags)}}
+          <p>You can add multiple tags using commas (eg patient, doctor, supermarket). Please use singular, not plural (eg 'farmer' not 'farmers') </p>
           
             {% if random %}
               <p>
