@@ -7,12 +7,12 @@
 {% block content %}
   <div class="expanded row">
     <div class="medium-8 columns">
-      <iframe src="{{legislation.html_url}}l" width="100%" height="800px"></iframe>
+      <iframe src="{{url_for('proxy')}}?url={{legislation.html_url}}l" width="100%" height="800px"></iframe>
     </div>
     <div class="medium-4 columns">
       {% if current_user.is_authenticated %}
         <h2>Add new tags</h2>
-        <p>Add multiple tags using commas (eg patient, doctor, supermarket). Please use singlar, not plural (eg 'farmer' not 'farmers') </p>
+        <p>Add multiple tags using commas (eg patient, doctor, supermarket). Please use singular, not plural (eg 'farmer' not 'farmers') </p>
         <form action="" method="post">
           {{ form.csrf_token }}
           {{render_field(form.policy_area_tags)}}

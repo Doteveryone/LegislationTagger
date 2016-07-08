@@ -1,0 +1,896 @@
+@charset "UTF-8";
+/*
+(c)  Crown copyright
+ 
+You may use and re-use this code free of charge under the terms of the Open Government Licence v3.0
+ 
+http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3
+
+*/
+@import url(legislation.css);
+/* preface */
+.preface::before {
+  display: block;
+  text-align: center;
+  font-size: 100%;
+  text-transform: uppercase;
+  letter-spacing: 0.3em; }
+
+article[data-name='UnitedKingdomStatutoryInstrument'] > .preface::before {
+  content: "Statutory Instruments"; }
+
+article[data-name='ScottishStatutoryInstrument'] > .preface::before {
+  content: "Scottish Statutory Instruments"; }
+
+article[data-name='WelshStatutoryInstrument'] > .preface::before {
+  content: "Welsh Statutory Instruments"; }
+
+p.number {
+  margin-top: 2em;
+  margin-bottom: 1.5em; }
+
+.docNumber {
+  font-size: 125%;
+  font-weight: bold; }
+
+.concept {
+  display: block;
+  margin-top: 1em;
+  text-align: center;
+  text-transform: uppercase; }
+
+.concept.title {
+  font-size: 125%; }
+
+.LaidDraft, .MadeDate, .LaidDate, .ComingIntoForce {
+  position: relative;
+  width: 70%;
+  left: 15%;
+  font-style: italic; }
+
+.ComingIntoForce > p {
+  position: relative;
+  margin: 0; }
+
+.ComingIntoForce > p.ComingIntoForceClauses {
+  margin-left: 2em; }
+
+.MadeDate > time, .LaidDate > time, .ComingIntoForce > time, .ComingIntoForceClauses > .time {
+  position: absolute;
+  right: 0; }
+
+*[data-name='RoyalPresence'] {
+  text-align: center; }
+
+.tblock.P2 > .num::before {
+  content: "("; }
+
+.tblock.P2 > .num {
+  margin-left: 1em; }
+
+.tblock.P2 > .num::after {
+  content: ") "; }
+
+.tblock.P2 > .num + p {
+  display: inline; }
+
+.preamble > .tblock {
+  margin-top: 0.5em; }
+
+.formula {
+  margin-top: 1em; }
+
+/* body */
+.body {
+  margin-top: 2em; }
+
+/* hierarchy */
+section .intro {
+  display: inline; }
+
+section .intro > p:first-child {
+  display: inline; }
+
+section .content {
+  display: inline; }
+
+section .content > p:first-child {
+  display: inline; }
+
+section .intro + .content {
+  display: block; }
+
+section .intro + .content > p:first-child {
+  display: block; }
+
+/* P1 */
+*[data-name='P1group'] {
+  margin-top: 1em; }
+
+*[data-name='P1group'] > h2 > span.heading {
+  font-weight: bold;
+  margin-bottom: 0.5em; }
+
+*[data-name='regulation'] {
+  margin-top: 1em; }
+
+*[data-name='regulation'] > h2 {
+  display: inline; }
+
+*[data-name='regulation'] > h2 > .heading {
+  font-weight: bold;
+  margin-bottom: 0.5em; }
+
+*[data-name='regulation'] > h2 > .num {
+  display: inline;
+  margin-left: 1em;
+  font-weight: bold; }
+
+*[data-name='regulation'] > h2 > .num:after {
+  content: "."; }
+
+*[data-name='regulation'] > h2 + .paragraph:before {
+  content: "—"; }
+
+.article {
+  margin-top: 1em; }
+
+.article > h2 {
+  display: inline; }
+
+.article > h2 > .heading {
+  font-weight: bold;
+  margin-bottom: 0.5em; }
+
+.article > h2 > .num {
+  display: inline;
+  margin-left: 1em;
+  font-weight: bold; }
+
+.article > h2 > .num:after {
+  content: ". "; }
+
+.article > h2 + .paragraph:before {
+  content: "—"; }
+
+.rule {
+  margin-top: 1em; }
+
+.rule > h2 {
+  display: inline; }
+
+.rule > h2 > .heading {
+  font-weight: bold;
+  margin-bottom: 0.5em; }
+
+.rule > h2 > .num {
+  display: inline;
+  margin-left: 1em;
+  font-weight: bold; }
+
+.rule > h2 > .num:after {
+  content: ". "; }
+
+.rule > h2 + .paragraph:before {
+  content: "—"; }
+
+.section {
+  margin-top: 1em; }
+
+.section > h2 {
+  display: inline; }
+
+.section > h2 > .heading {
+  font-weight: bold;
+  margin-bottom: 0.5em; }
+
+.section > h2 > .num {
+  display: inline;
+  margin-left: 1em;
+  font-weight: bold; }
+
+.section > h2 > .num:after {
+  content: ". "; }
+
+.section > h2 + .subsection:before {
+  content: "—"; }
+
+/* P2 */
+/* .section[] > .paragraph { margin-left: 1em } */
+.paragraph {
+  position: relative;
+  margin-top: 0.5em; }
+
+.paragraph > h3 {
+  display: inline; }
+
+.paragraph > h3 > .num:before {
+  content: "("; }
+
+.paragraph > h3 > .num[data-startQuote]:before {
+  content: attr(data-startQuote) "("; }
+
+.paragraph > h3 > .num {
+  display: inline;
+  margin-left: 1em; }
+
+.paragraph > h3 > .num:after {
+  content: ")"; }
+
+/* *[data-name='regulation'].paragraph:first-of-type > h3::before { content: '\2014' } */
+.paragraph:first-of-type {
+  display: inline; }
+
+.paragraph:first-of-type > h3 > .num {
+  display: inline;
+  margin-left: 0; }
+
+.subsection {
+  position: relative;
+  margin-top: 0.5em; }
+
+.subsection > h2 {
+  display: inline; }
+
+.subsection > h2 > .num:before {
+  content: "("; }
+
+.subsection > h2 > .num[data-startQuote]:before {
+  content: attr(data-startQuote) "("; }
+
+.subsection > h2 > .num {
+  display: inline;
+  margin-left: 2em; }
+
+.subsection > h2 > .num:after {
+  content: ")"; }
+
+.subsection:first-of-type {
+  display: inline; }
+
+.subsection:first-of-type > h2 > .num {
+  margin-left: 0; }
+
+/* P3 */
+.subparagraph {
+  position: relative;
+  margin-top: 0.5em; }
+
+.subparagraph {
+  margin-left: 5em; }
+
+.subparagraph > h4 > .num {
+  display: inline-block;
+  position: absolute;
+  left: -2em; }
+
+.subparagraph > h4 > .num:before {
+  content: "("; }
+
+.subparagraph > h4 > .num[data-startQuote]:before {
+  content: attr(data-startQuote) "("; }
+
+.subparagraph > h4 > .num:after {
+  content: ")"; }
+
+/* P4 */
+.clause {
+  position: relative;
+  margin-top: 0.5em; }
+
+.clause {
+  margin-left: 2em; }
+
+.clause > h5 > .num:before {
+  content: "("; }
+
+.clause > h5 > .num[data-startQuote]:before {
+  content: attr(data-startQuote) "("; }
+
+.clause > h5 > .num {
+  display: inline-block;
+  position: absolute;
+  left: -2em;
+  width: 1.5em;
+  text-align: right; }
+
+.clause > h5 > .num:after {
+  content: ")"; }
+
+*[data-name='schedule'] .paragraph:first-of-type {
+  display: block; }
+
+*[data-name='schedule'] .paragraph:first-of-type > * > .num {
+  display: inline-block;
+  position: absolute;
+  left: -3em; }
+
+blockquote.schedule .paragraph:first-of-type {
+  display: block; }
+
+blockquote.schedule .paragraph:first-of-type > * > .num {
+  display: inline-block;
+  position: absolute;
+  left: -3em; }
+
+/* signatures */
+*[data-name='signatures'] {
+  margin-top: 2em; }
+
+.signature > .person {
+  display: block;
+  margin-top: 0.5em;
+  text-align: right;
+  font-style: italic; }
+
+.signature > .role {
+  display: block;
+  text-align: right; }
+
+.signature > .organization {
+  display: block;
+  text-align: right; }
+
+.signature > .location {
+  display: block; }
+
+.signature > time {
+  display: block; }
+
+/* footnotes */
+.noteRef.footnote::before {
+  content: "("; }
+
+.noteRef.footnote::after {
+  content: ")"; }
+
+.note.footnote > .marker::before {
+  content: "("; }
+
+.note.footnote > .marker::after {
+  content: ")"; }
+
+/* primary blockquotes */
+/* these are a combination of the styles from primary.css and an override of the above */
+blockquote.primary section .intro {
+  display: block; }
+
+blockquote.primary section .intro > p:first-child {
+  display: block; }
+
+blockquote.primary section .content {
+  display: block; }
+
+blockquote.primary section .content > p:first-child {
+  display: block; }
+
+blockquote.primary .section {
+  padding-left: 3em; }
+
+blockquote.primary .section > h2 {
+  display: block; }
+
+blockquote.primary .section > h2 > .num[data-startQuote]:before {
+  content: attr(data-startQuote); }
+
+blockquote.primary .section > h2 > .num {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  margin-left: 0;
+  font-weight: bold; }
+
+blockquote.primary .section > h2 > .num:after {
+  content: ""; }
+
+blockquote.primary .section > h2 > .heading {
+  margin-left: 0; }
+
+blockquote.primary .section > .content {
+  padding-left: 3em; }
+
+blockquote.primary .subsection {
+  margin-left: 4em; }
+
+blockquote.primary .subsection > h2 {
+  display: block; }
+
+blockquote.primary .subsection > h2 > .num {
+  display: inline-block;
+  position: absolute;
+  left: -3em;
+  margin-left: 0; }
+
+blockquote > .subsection:first-of-type {
+  display: block; }
+
+blockquote > .subsection:first-of-type > h2 > .num {
+  margin-left: 2em; }
+
+blockquote.primary .subsection:first-of-type {
+  display: block; }
+
+blockquote.primary .subsection:first-of-type > h2 > .num {
+  display: inline-block;
+  margin-left: 0; }
+
+blockquote.primary .paragraph {
+  margin-left: 4em; }
+
+blockquote.primary .paragraph > h3 {
+  display: block; }
+
+blockquote.primary .paragraph > * > span.num {
+  display: inline-block;
+  position: absolute;
+  left: -3em;
+  margin-left: 0; }
+
+blockquote > .paragraph:first-of-type {
+  display: block; }
+
+blockquote > .paragraph:first-of-type > * > .num {
+  margin-left: 1em; }
+
+blockquote.primary .paragraph:first-of-type {
+  display: block; }
+
+blockquote.primary .paragraph:first-of-type > * > .num {
+  display: block; }
+
+blockquote.primary .subparagraph {
+  margin-left: 4em; }
+
+blockquote.primary .subparagraph > * > .num {
+  display: inline-block;
+  position: absolute;
+  left: -3em; }
+
+/*
+(c)  Crown copyright
+ 
+You may use and re-use this code free of charge under the terms of the Open Government Licence v3.0
+ 
+http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3
+
+*/
+.annotations {
+  display: block; }
+
+.noteRef.commentary {
+  display: inline; }
+
+.noteRef.C, .noteRef.E, .noteRef.I, .noteRef.P {
+  display: none; }
+
+ins.first::before {
+  font-weight: bold;
+  font-size: x-large;
+  content: "["; }
+
+ins.last::after {
+  font-weight: bold;
+  font-size: x-large;
+  content: "]"; }
+
+/*
+(c)  Crown copyright
+ 
+You may use and re-use this code free of charge under the terms of the Open Government Licence v3.0
+ 
+http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3
+
+*/
+:not(.prospective) > .prospective:not(.toc):not(.tocItem) {
+  border: 1px solid #7A8093;
+  background-color: #EFF5F5; }
+
+:not(.prospective) > .prospective:not(.toc):not(.tocItem)::before {
+  display: block;
+  margin-bottom: 1em;
+  background-color: #7A8093;
+  text-align: right;
+  padding: 6pt;
+  color: white;
+  content: "Prospective"; }
+
+article.primary :not(.prospective) > .section.prospective::before {
+  margin-left: -4em;
+  margin-right: -1em; }
+
+article.primary .section.prospective {
+  padding: 0 1em 1em 4em; }
+
+article.primary .section.prospective > h2 > .num {
+  left: 1em; }
+
+*[data-name='schedules'].prospective::before {
+  margin-left: -1em;
+  margin-right: -1em; }
+
+*[data-name='schedules'].prospective {
+  padding: 0 1em 1em 1em; }
+
+/*
+(c)  Crown copyright
+ 
+You may use and re-use this code free of charge under the terms of the Open Government Licence v3.0
+ 
+http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3
+
+*/
+body {
+  padding: 2em;
+  font-family: arial, helvetica, verdana, sans-serif;
+  font-size: 12pt; }
+
+a {
+  color: #2790C4; }
+
+a[href=''], a[href^='#'] {
+  text-decoration: none;
+  color: inherit; }
+
+a[href='']:hover, a[href^='#']:hover {
+  text-decoration: underline; }
+
+p {
+  margin: 0.5em 0; }
+
+p.indented {
+  text-indent: 1em; }
+
+div.mod {
+  display: inline; }
+
+/* mod can't be span if contains blockquote */
+blockquote {
+  margin-top: 0.5em;
+  margin-left: 3em; }
+
+blockquote[style='display:inline'] {
+  margin-left: 0; }
+
+*[data-startQuote]:before {
+  content: attr(data-startQuote); }
+
+h1 {
+  font-size: 150%;
+  font-weight: normal; }
+
+h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-size: medium;
+  font-weight: normal; }
+
+div.authorialNote[data-placement='right'] {
+  position: absolute;
+  right: 0; }
+
+div.authorialNote[data-placement='right'] {
+  top: -1em;
+  font-size: smaller; }
+
+ins {
+  text-decoration: inherit; }
+
+.foreign {
+  text-align: center; }
+
+/* for math */
+h1 {
+  text-align: center; }
+
+span.heading {
+  display: block; }
+
+/* preface */
+.preface {
+  margin: 2em 0; }
+
+.preface p {
+  margin: 1em 0; }
+
+.preface > p.title {
+  text-align: center; }
+
+.preface > p.number {
+  text-align: center; }
+
+*[data-name='EnactingText'] .BlockText {
+  margin-left: 2em; }
+
+/* hierarchy */
+section {
+  position: relative; }
+
+.hcontainer {
+  display: block; }
+
+.tblock {
+  margin-top: 1em; }
+
+span.num[data-startQuote]:before {
+  content: attr(data-startQuote); }
+
+.part {
+  margin-top: 2em; }
+
+.part > h2 > span.num {
+  display: block;
+  text-align: center; }
+
+.part > h2 > span.heading {
+  text-align: center; }
+
+.chapter {
+  margin-top: 2em; }
+
+.chapter > h2 > span.num {
+  display: block;
+  text-align: center; }
+
+.chapter > h2 > span.heading {
+  text-align: center; }
+
+*[data-name='crossheading'] {
+  margin-top: 2em; }
+
+*[data-name='crossheading'] > h2 > span.heading {
+  text-align: center; }
+
+/* *[data-name='schedule'] *[data-name='crossheading'] > h2 > span.heading { text-align: left } */
+/* ukpga/2010/1 schedule: crossheading is centered */
+/* schedules */
+*[data-name='schedules'] {
+  margin-top: 2em; }
+
+*[data-name='schedules'] > h2 > .heading {
+  text-align: center; }
+
+*[data-name='schedule'] {
+  margin-top: 1em; }
+
+*[data-name='schedule'] > h2 > .num {
+  display: block;
+  text-align: center; }
+
+*[data-name='schedule'] > h2 > .heading {
+  text-align: center; }
+
+/* P1 'paragraphs' within schedules */
+*[data-name='schedule'] .paragraph {
+  position: relative;
+  padding-left: 3em; }
+
+/* margin-left is to undo what's done in secondary.css -- but this is sloppy */
+*[data-name='schedule'] .paragraph > * > .num {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  margin-left: 0; }
+
+/* see e.g., ukpga/2010/1/schedule */
+*[data-name='schedule'] .paragraph > * > span.num:before {
+  content: ""; }
+
+*[data-name='schedule'] .paragraph > * > span.num[data-startQuote]:before {
+  content: attr(data-startQuote); }
+
+*[data-name='schedule'] .paragraph > * > span.num:after {
+  content: ""; }
+
+/* P2 */
+*[data-name='schedule'] .subparagraph {
+  position: relative;
+  padding-left: 3em; }
+
+*[data-name='schedule'] .subparagraph > * > span.num {
+  display: inline-block;
+  position: absolute;
+  left: 0; }
+
+*[data-name='schedule'] .subparagraph > * > span.num:before {
+  content: "("; }
+
+*[data-name='schedule'] .subparagraph > * > span.num[data-startQuote]:before {
+  content: attr(data-startQuote) "("; }
+
+*[data-name='schedule'] .subparagraph > * > span.num:after {
+  content: ")"; }
+
+/* P3 'paragraphs' within schedules */
+*[data-name='schedule'] .paragraph .paragraph > * > span.num:before {
+  content: "("; }
+
+*[data-name='schedule'] .paragraph .paragraph > * > span.num[data-startQuote]:before {
+  content: attr(data-startQuote) "("; }
+
+*[data-name='schedule'] .paragraph .paragraph > * > span.num:after {
+  content: ")"; }
+
+/* table of contents */
+.tocItem {
+  margin-left: 15%; }
+
+.tocItem.title {
+  margin-top: 0.5em; }
+
+.tocItem.part {
+  margin-top: 0.5em; }
+
+.tocItem.heading {
+  margin-top: 0.5em;
+  margin-left: calc(15% + 0.5em);
+  font-style: italic; }
+
+.tocItem.schedule {
+  margin-top: 0.5em; }
+
+.tocItem.part[data-level='2'] {
+  margin-left: calc(15% + 1em); }
+
+.tocItem[data-level='3'] {
+  margin-left: calc(15% + 2em); }
+
+.tocItem[data-level='4'] {
+  margin-left: calc(15% + 3em); }
+
+.inline[data-name='tocNum'] {
+  display: inline-block; }
+
+.inline[data-name='tocNum']::after {
+  content: "."; }
+
+.inline[data-name='tocHeading'] {
+  display: inline-block;
+  padding-left: 0.5em; }
+
+/* lists */
+ol, ul {
+  position: relative;
+  margin: 0 0 0 1em;
+  padding-left: 0;
+  list-style-type: none; }
+
+li {
+  margin-left: 2em; }
+
+li > span.num {
+  display: inline-block;
+  position: absolute;
+  left: 0; }
+
+/* dt { display: inline-block } */
+dl.equals > dt:after {
+  content: ' = '; }
+
+/* tables */
+.tabular > .num {
+  font-weight: bold; }
+
+.tabular > .heading {
+  font-weight: bold; }
+
+table {
+  margin: 0 auto;
+  border-top: thin solid black;
+  border-bottom: thin solid black;
+  border-collapse: collapse; }
+
+th {
+  text-align: left;
+  font-weight: normal; }
+
+th, td {
+  padding: 0.5em;
+  vertical-align: top; }
+
+/* inline quotes */
+q:before {
+  content: none; }
+
+q:after {
+  content: none; }
+
+/* math */
+.foreign[data-ukl-Formula] {
+  display: block;
+  text-align: center; }
+
+math {
+  margin: 0 auto;
+  font-size: xx-large; }
+
+/* figures */
+.figure > p {
+  text-align: center; }
+
+figcaption {
+  text-align: center; }
+
+/* notes */
+.noteRef {
+  vertical-align: super; }
+
+.noteRef.commentary {
+  font-weight: bold;
+  display: none; }
+
+.noteRef.footnote {
+  font-size: smaller; }
+
+.annotations {
+  margin: 1em;
+  border: thin solid grey;
+  display: none; }
+
+.annotations > div:first-child {
+  padding: 0.5em;
+  font-weight: bold; }
+
+.annotations > div > div:first-child {
+  margin: 0 0.5em;
+  border-top: thin dotted gray;
+  padding: 0.5em;
+  font-weight: bold; }
+
+.note {
+  position: relative;
+  font-size: smaller; }
+
+.note > .marker {
+  display: inline-block;
+  position: absolute; }
+
+.note > p:first-of-type {
+  margin-top: 0; }
+
+.note > p:last-of-type {
+  margin-bottom: 0; }
+
+.note.commentary {
+  padding: 0.5em 1em 0.5em 4em; }
+
+.note.commentary > .marker {
+  left: 1em; }
+
+.footnotes {
+  margin-top: 2em;
+  border-top: thin solid black;
+  padding-top: 1em; }
+
+.note.footnote {
+  position: relative;
+  padding: 0.5em 1em 0.5em 2em; }
+
+.note.footnote > .marker {
+  left: 0em; }
+
+.tblock.footnote > span.num {
+  display: inline-block;
+  position: absolute; }
+
+.tblock.footnote > p {
+  margin-left: 2em; }
+
+/* conclusions */
+.conclusions {
+  margin-top: 2em; }
+
+.ExplanatoryNotes > .heading {
+  text-align: center; }
+
+.ExplanatoryNotes > .intro > p {
+  text-align: center;
+  font-style: italic; }
+
+/* blockquotes with run-on paragraphs */
+p.run-on, .x-inline {
+  display: inline; }
+
+blockquote.schedule *[data-name='schedule'] *[data-name='crossheading'] > h2 > span.heading {
+  text-align: center;
+  font-style: italic; }
+
+/*# sourceMappingURL=legislationgovuk.css.map */

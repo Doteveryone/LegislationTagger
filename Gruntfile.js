@@ -34,7 +34,8 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'legitag/static/css/main.css' : 'legitag/assets/sass/main.scss'
+          'legitag/static/css/main.css' : 'legitag/assets/sass/main.scss',
+          'legitag/static/css/legislationgovuk.css' : 'legitag/assets/sass/legislationgovuk.scss'
         }
       }
     },

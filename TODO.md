@@ -1,5 +1,6 @@
 
-* remove debug flag
+* tag for specific organisations
+* note about commas & singular
 * confirm email account
 * intro on home page
 * ability remove tags
@@ -21,6 +22,7 @@
 * Download data page
 
 DONE:
+* remove debug flag
 * deploy to heroku
 * link to home
 * Real name of user

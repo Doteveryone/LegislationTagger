@@ -3,6 +3,7 @@ from flask.ext.security import login_required, current_user
 from legitag import app, models, forms
 from mongoengine import DoesNotExist
 import random
+import requests
 
 
 @app.route('/')
@@ -13,6 +14,23 @@ def index():
 @app.route('/about')
 def about():
     return render_template('about.html', menu_item='about')
+
+@app.route('/proxy')
+def proxy():
+    url = request.args.get('url', False)
+    if url:
+        if url.startswith('http://legislation.data.gov.uk') or url.startswith('http://legislation.gov.uk'):
+            html =  requests.get(url).text
+            html = html.replace('<link rel="stylesheet" href="/styles/HTML5_styles/secondary.css" type="text/css">', '')
+            html = html.replace('<link rel="stylesheet" href="/styles/HTML5_styles/annotations.css" type="text/css">', '')
+            html = html.replace('<link rel="stylesheet" href="/styles/HTML5_styles/prospective.css" type="text/css">', '')
+            html = html.replace('<head>', '<head><link rel="stylesheet" href="/static/css/legislationgovuk.css" type="text/css">')
+
+            return html
+        else:
+            abort(404)
+    else:
+        abort(404)
 
 
 @app.route('/legislation/<id>', methods=['GET', 'POST'])
