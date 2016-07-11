@@ -5,7 +5,6 @@ from mongoengine import DoesNotExist
 import random
 import requests
 
-
 @app.route('/')
 def index():
     legislations = models.Legislation.objects()
@@ -106,5 +105,6 @@ def random_legislation():
 
 @app.route('/tags')
 def tags():
-    return render_template('tags.html', menu_item='tags')
+    tags = models.Legislation.objects.distinct('_tags')
+    return render_template('tags.html', menu_item='tags', tags=tags)
 
