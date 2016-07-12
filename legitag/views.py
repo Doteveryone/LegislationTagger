@@ -59,7 +59,7 @@ def legislation(id):
                 if item.strip() != '':
                     tag = models.Tag()
                     tag.key = 'policy'
-                    tag.value = item.strip()
+                    tag.value = item.strip().lower()
                     legislation.append_tag(tag)
 
             # users
@@ -67,7 +67,7 @@ def legislation(id):
                 if item.strip() != '':
                     tag = models.Tag()
                     tag.key = 'user'
-                    tag.value = item.strip()
+                    tag.value = item.strip().lower()
                     legislation.append_tag(tag)
 
             #organisations
@@ -75,7 +75,7 @@ def legislation(id):
                 if item.strip() != '':
                     tag = models.Tag()
                     tag.key = 'organisation'
-                    tag.value = item.strip()
+                    tag.value = item.strip().lower()
                     legislation.append_tag(tag)
 
             #custom

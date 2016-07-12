@@ -7,7 +7,6 @@ class Role(db.Document, RoleMixin):
     name = db.StringField(max_length=80, unique=True)
     description = db.StringField(max_length=255)
 
-
 class User(db.Document, UserMixin):
     name = db.StringField(max_length=255)
     email = db.StringField(max_length=255)
