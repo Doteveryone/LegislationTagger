@@ -14,6 +14,7 @@ class Config(object):
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD', None)
     SECURITY_PASSWORD_HASH = 'sha512_crypt'
     SECURITY_PASSWORD_SALT = os.environ.get('SECURITY_PASSWORD_SALT', None)
+    SECURITY_SEND_REGISTER_EMAIL = False
 
 class DevelopmentConfig(Config):
     DEBUG = True
