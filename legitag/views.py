@@ -63,7 +63,7 @@ def legislation(id):
                     legislation.append_tag(tag)
 
             # users
-            for item in form.policy_area_tags.data.split(','):
+            for item in form.users_affected_tags.data.split(','):
                 if item.strip() != '':
                     tag = models.Tag()
                     tag.key = 'user'
