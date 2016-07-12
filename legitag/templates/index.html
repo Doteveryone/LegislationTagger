@@ -2,21 +2,30 @@
 {% block title %}Doteveryone - Legislation Tagger{% endblock %}
 {% block content %}
   <section class="row expanded">
-    <div class="small-12 large-8 columns">
-      <h2>Make sense of EU/UK legislation</h2>
+    <div class="small-12 large-7 columns">
+
       <p class="lead">
-        The vast majority of EU legislation is enacted by Statutory Instrument under <a href="http://www.legislation.gov.uk/ukpga/1972/68/section/2">section 2(2) of the European Communities Act 1972 (UK)</a>.
+        The vast majority of EU legislation is enacted by Statutory Instrument under <a href="http://www.legislation.gov.uk/ukpga/1972/68/section/2">section 2(2) of the European Communities Act 1972 (UK)</a>. These laws will need to be examined over the coming months, as the government considers whether to repeal, replace or amend them.
       </p>
-      <p class="lead">
-        Many of these laws will need to be examined over the coming months, so <a href="https://doteveryone.org.uk">Doteveryone</a> has built Legislation Tagger to try and help make sense of it.
+      <p>
+        <a href="https://doteveryone.org.uk">Doteveryone</a> has built this website as an experiment to see if it is possible to crowd-source useful data about that body of legislation and make the whole process more transparent.
       </p>
+      <p>
+        For example: is it possible to build a list of all the regulations that relate to workers rights or consumer protection?. This data doesn't exist anywhere - so we need to try and build it.
+      </p>
+      <p>
+        We have put this together very quickly, so please let us know if you <a href="https://github.com/Doteveryone/LegislationTagger/issues">find any bugs</a>.
+      </p>
+
+    </div>
+    <div class="small-12 large-5 columns">
+      {% if current_user.is_authenticated %}
       <h3>How it works</h3>
       <p>
-        You read a <em>random</em> piece of legislation and record what policy areas you think it might cover and who it might affect.
+        You read a <em>random</em> piece of legislation and record what policy areas you think it might cover and who it might affect. 
       </p>
-      {% if current_user.is_authenticated %}
       <p>
-        <a href="{{url_for('random_legislation')}}" class="button">Tag a random bit of legislation</a>
+        <a href="{{url_for('random_legislation')}}" class="button expanded">Tag a random bit of legislation</a>
       </p>
       <h3>Top taggers</h3>
       <ol>
