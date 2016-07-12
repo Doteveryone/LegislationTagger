@@ -13,4 +13,4 @@ class TagForm(Form):
     advanced_tags = FieldList(FormField(SingleTagForm), min_entries=5)
 
 class RegisterUserForm(RegisterForm):
-    name = StringField('Name', [validators.Required()])
+    name = StringField('Name / username', [validators.Required()])
