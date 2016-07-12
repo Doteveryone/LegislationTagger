@@ -37,6 +37,16 @@ def generateleaguetable():
         edit_count.save()
 
 @manager.command
+def temp():
+
+    legislations = models.Legislation.objects()
+    for legislation in legislations:
+        for tag in list(legislation._tags):
+            if tag.key == 'user':
+                legislation._tags.remove(tag)
+        legislation.save()
+
+@manager.command
 def importdata():
 
     keep_going = True
