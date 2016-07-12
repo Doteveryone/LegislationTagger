@@ -12,16 +12,6 @@
   {% endblock %}
 </head>
 <body>
-  {% with messages = get_flashed_messages() %}
-    {% if messages %}
-      {% for message  in messages %}
-        <div class="alert-box alert">
-          {{ message }}&nbsp;
-        </div>
-      {% endfor %}
-    {% endif %}
-  {% endwith %}
-  
   <header role="banner"  class="expanded row">
     <div class="small-12 large-8 columns">
       <h1>
@@ -58,6 +48,17 @@
     </div>
   </header>
   <main role="main">
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="small-12 large-8 columns">
+          {% for message  in messages %}
+            <p>
+              {{ message|safe }}&nbsp;
+            </p>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
     {% block content %}{% endblock %}
   </main>
 </body>

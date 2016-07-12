@@ -1,4 +1,4 @@
-from flask import request, render_template, send_from_directory, abort, redirect, url_for
+from flask import request, render_template, send_from_directory, abort, redirect, url_for, flash
 from flask.ext.security import login_required, current_user
 from legitag import app, models, forms
 from mongoengine import DoesNotExist
@@ -89,10 +89,14 @@ def legislation(id):
                     legislation.append_tag(tag)
 
             legislation.save(current_user, "Added tags")
+            
 
             # if random, then off to another page
             if random:
+                flash('Thanks, your tags have been added. <a href="%s">Click here to go back to it</a>.' % url_for('legislation', id=legislation.id))
                 return redirect(url_for('random_legislation'))
+            else:
+                flash('Thanks, your tags have been added.')
 
     return render_template('legislation.html', legislation=legislation, form=form, random=random, menu_item='tools')
 
@@ -102,7 +106,6 @@ def random_legislation():
     random_record = random.randint(0, total-1)
     legislation = models.Legislation.objects[random_record:].first()
     return redirect("%s?random=true" % url_for('legislation', id=legislation.id))
-
 
 @app.route('/tags')
 def tags():
