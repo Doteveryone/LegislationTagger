@@ -17,6 +17,26 @@ def resetdatabase():
       print("Deleted all collections from database ...")
 
 @manager.command
+def generateleaguetable():
+    ledger = {}
+    legislations = models.Legislation.objects()
+    for legislation in legislations:
+        for edit in legislation._edits:
+            if edit.user.id in ledger:
+                ledger[edit.user.id]['count'] += 1
+            else:
+                ledger[edit.user.id] = {'user': edit.user, 'count': 1}
+
+    
+    models.EditCount.drop_collection()
+    for key, value in ledger.items():
+
+        edit_count = models.EditCount()
+        edit_count.user = value['user']
+        edit_count.count = value['count']
+        edit_count.save()
+
+@manager.command
 def importdata():
 
     keep_going = True

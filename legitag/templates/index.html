@@ -18,12 +18,18 @@
       <p>
         <a href="{{url_for('random_legislation')}}" class="button">Tag a random bit of legislation</a>
       </p>
+      <h3>Top taggers</h3>
+      <ol>
+        {% for count in edit_count %}
+          <li>{{count.user.name}} ({{count.count}})</li>
+        {% endfor%}
+      </ol>
       {% else %}
         <p>
           <a href="{{ url_for('security.register') }}">Create an account to get started</a>
         </p>
       {% endif %}
-    </div>  
+    </div>
   </section>
   
 {% endblock %}

@@ -16,6 +16,9 @@ class User(db.Document, UserMixin):
     confirmed_at = db.DateTimeField()
     roles = db.ListField(db.ReferenceField(Role), default=[])
 
+class EditCount(db.Document):
+    user = db.ReferenceField(User, required=True)
+    count = db.IntField(required=True)
 
 class Edit(db.EmbeddedDocument):
     user = db.ReferenceField(User, required=True)

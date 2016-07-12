@@ -7,8 +7,8 @@ import requests
 
 @app.route('/')
 def index():
-    legislations = models.Legislation.objects()
-    return render_template('index.html', legislations=legislations, menu_item='tools')
+    edit_count = models.EditCount.objects.order_by('-count')
+    return render_template('index.html', edit_count=edit_count, menu_item='tools')
 
 @app.route('/about')
 def about():
@@ -102,6 +102,7 @@ def random_legislation():
     random_record = random.randint(0, total-1)
     legislation = models.Legislation.objects[random_record:].first()
     return redirect("%s?random=true" % url_for('legislation', id=legislation.id))
+
 
 @app.route('/tags')
 def tags():
