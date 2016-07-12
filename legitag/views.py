@@ -114,3 +114,9 @@ def tags():
 
     return render_template('tags.html', menu_item='tags', tags=tags)
 
+@app.route('/tags/<tag>')
+def tag_browse(tag):
+    tag_split = tag.split(':')
+    legislations = models.Legislation.objects(_tags__key=tag_split[0], _tags__value=tag_split[1])
+    return render_template('tags_browse.html', menu_item='tags', tag=tag, legislations=legislations)
+

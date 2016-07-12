@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Doteveryone - Better Job Adverts{% endblock %}
+{% block title %}Browse tags{% endblock %}
 {% block content %}
   <section class="row expanded">
     <div class="small-12 large-8 columns">
@@ -10,7 +10,7 @@
               <ul>
           {% endif %}
             <li>
-              {{tag.value}}
+              <a href="{{url_for('tag_browse', tag=tag.key + ':' + tag.value )}}">{{tag.value}}</a>
             </li>
           {% if loop.last or (tags[loop.index0 + 1].key !=  tags[loop.index0].key) %}
               </ul>
