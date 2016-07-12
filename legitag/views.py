@@ -106,5 +106,7 @@ def random_legislation():
 @app.route('/tags')
 def tags():
     tags = models.Legislation.objects.distinct('_tags')
+    tags.sort(key=lambda x: x.key)
+
     return render_template('tags.html', menu_item='tags', tags=tags)
 

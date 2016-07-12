@@ -7,8 +7,14 @@
         {% for tag in tags %}
           {% if loop.first or (tags[loop.index0 - 1].key !=  tags[loop.index0].key) %}
               <h3>{{tag.key}}</h3>
+              <ul>
           {% endif %}
-            {{tag.value}}
+            <li>
+              {{tag.value}}
+            </li>
+          {% if loop.last or (tags[loop.index0 + 1].key !=  tags[loop.index0].key) %}
+              </ul>
+          {% endif %}
 
         {% endfor %}
     </div>  

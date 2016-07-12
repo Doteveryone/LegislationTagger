@@ -1,5 +1,5 @@
 
-
+* sort tags list
 * confirm email account
 * ability remove tags
 * tests that work on travis
@@ -19,6 +19,8 @@
 * Search
 * clear data after adding tags
 * Download data page
+* Delete user tags
+
 
 DONE:
 * note about commas & singular
