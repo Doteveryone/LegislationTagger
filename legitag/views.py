@@ -120,3 +120,10 @@ def tag_browse(tag):
     legislations = models.Legislation.objects(_tags__key=tag_split[0], _tags__value=tag_split[1])
     return render_template('tags_browse.html', menu_item='tags', tag=tag, legislations=legislations)
 
+@app.route('/search')
+def search():
+    query = request.args.get('q', False)
+    legislations = []
+    if query:
+        legislations = models.Legislation.objects.search_text(query).order_by('$text_score')
+    return render_template('search.html', menu_item='search', legislations=legislations, query=query)

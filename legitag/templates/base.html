@@ -35,14 +35,14 @@
         </p>
         <ul class="menu">
           <li{% if menu_item == 'tools' or not menu_item %} class="active"{% endif %}>
-            <a href="{{url_for('index')}}">Legislation</a>
+            <a href="{{url_for('index')}}">Wiki</a>
           </li>
           <li{% if menu_item == 'tags'%} class="active"{% endif %}>
             <a href="{{url_for('tags')}}">Browse</a>
           </li>
-<!--           <li{% if menu_item == 'about'%} class="active"{% endif %}>
-            <a href="{{url_for('about')}}">About</a>
-          </li> -->
+          <li{% if menu_item == 'search'%} class="active"{% endif %}>
+            <a href="{{url_for('search')}}">Search</a>
+          </li>
         </ul>
       </nav>
     </div>

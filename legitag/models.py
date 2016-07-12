@@ -38,6 +38,13 @@ class Legislation(db.Document):
     _tags = db.EmbeddedDocumentListField(Tag)
     _edits = db.EmbeddedDocumentListField(Edit)
 
+    meta = {'indexes': [
+    {'fields': ['$title'],
+     'default_language': 'english',
+     'weights': {'title': 10}
+    }
+    ]}
+
     @property
     def tags(self):
         return self._tags

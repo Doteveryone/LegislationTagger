@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Search results{% endblock %}
+{% block content %}
+  <section class="row expanded">
+    <div class="small-12 large-8 columns">
+      {% if query == '' or query == False%}
+        <h2>Search legislation</h2>
+      {% else %}
+        <h2>Search results for '{{query}}'</h2>
+      {% endif %}
+      <form method="get" action="{{url_for('search')}}">
+        <label for="q">Search</label>
+        <div class="input-group">
+          <input name="q" id="q" type="text" class="input-group-field" />
+          <div class="input-group-button">
+            <button type="submit" class="button">Go</button>
+          </div>
+        </div>
+      </form>
+      <ol>
+        {% for legislation in legislations %}
+          <li>
+            <a href="{{url_for('legislation', id=legislation.id)}}">{{legislation.title}}</a>
+          </li>
+        {% endfor %}
+      </ol>
+    </div>  
+  </section>
+  
+{% endblock %}
