@@ -3,7 +3,7 @@
 {% block content %}
   <section class="row expanded">
     <div class="small-12 large-8 columns">
-      <h2>Tags</h2>
+      <h2>Legislation tagged so far</h2>
         {% for tag in tags %}
           {% if loop.first or (tags[loop.index0 - 1].key !=  tags[loop.index0].key) %}
               <h3>{{tag.key}}</h3>
