@@ -1,2 +1,3 @@
-web: python server.py
+web: gunicorn legitag.wsgi --log-file -
+py
 
