@@ -88,15 +88,17 @@ def legislation(id):
                     tag.value = value
                     legislation.append_tag(tag)
 
-            legislation.save(current_user, "Added tags")
-            
+            try:
+                legislation.save(current_user, "Added tags")
+                # if random, then off to another page
+                if random:
+                    flash('Thanks, your tags have been added. <a href="%s">Click here to go back to it</a>.' % url_for('legislation', id=legislation.id))
+                    return redirect(url_for('random_legislation'))
+                else:
+                    flash('Thanks, your tags have been added.')
+            except:
+                flash('Sorry, something went wrong.')
 
-            # if random, then off to another page
-            if random:
-                flash('Thanks, your tags have been added. <a href="%s">Click here to go back to it</a>.' % url_for('legislation', id=legislation.id))
-                return redirect(url_for('random_legislation'))
-            else:
-                flash('Thanks, your tags have been added.')
 
     return render_template('legislation.html', legislation=legislation, form=form, random=random, menu_item='tools')
 
