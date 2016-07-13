@@ -10,7 +10,7 @@
         {% for tag in tags %}
           {% if loop.first or (tags[loop.index0 - 1].key !=  tags[loop.index0].key) %}
               <h3>{{tag.key}}</h3>
-              <ul>
+              <ul class="small-block-grid-3">
           {% endif %}
             <li>
               <a href="{{url_for('tag_browse', tag=tag.key + ':' + tag.value )}}">{{tag.value}}</a>

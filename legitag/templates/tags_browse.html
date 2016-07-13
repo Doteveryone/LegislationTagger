@@ -4,11 +4,13 @@
   <section class="row expanded">
     <div class="small-12 large-8 columns">
       <h2>Legislation tagged '{{tag}}'</h2>
-      {% for legislation in legislations %}
-        <li>
-          <a href="{{url_for('legislation', id=legislation.id)}}">{{legislation.title}}</a>
-        </li>
-      {% endfor %}
+      <ul>
+        {% for legislation in legislations %}
+          <li>
+            <a href="{{url_for('legislation', id=legislation.id)}}">{{legislation.title}}</a>
+          </li>
+        {% endfor %}
+      </ul>
     </div>  
   </section>
   
