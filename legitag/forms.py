@@ -1,6 +1,7 @@
 from wtforms import Form, BooleanField, TextField, StringField, RadioField, HiddenField, TextAreaField, validators, ValidationError, FieldList, FormField
 from wtforms.widgets import TextArea
 from flask_security.forms import RegisterForm
+from wtforms.fields.html5 import EmailField
 
 class SingleTagForm(Form):
     key = TextField('Key')
@@ -14,3 +15,4 @@ class TagForm(Form):
 
 class RegisterUserForm(RegisterForm):
     name = StringField('Name / username', [validators.Required()])
+    email = EmailField('Email', [validators.Required()])
