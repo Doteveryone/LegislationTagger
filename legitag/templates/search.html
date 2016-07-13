@@ -8,15 +8,21 @@
       {% else %}
         <h2>Search results for '{{query}}'</h2>
       {% endif %}
+      <p>
+        Search all <sup><a href="#caveat">[1]</a></sup> statutory Instrument under section 2(2) of the European Communities Act 1972 (UK)
+      </p>
       <form method="get" action="{{url_for('search')}}">
         <label for="q">Search</label>
         <div class="input-group">
-          <input name="q" id="q" type="text" class="input-group-field" value="query" />
+          <input name="q" id="q" type="text" class="input-group-field" value="{{query}}" />
           <div class="input-group-button">
             <button type="submit" class="button">Go</button>
           </div>
         </div>
       </form>
+      <p id="caveat">
+        * anything that <a href="http://www.legislation.gov.uk/all?text=European%20Communities%20Act%201972">contains the text European Communities Act 1972</a>.
+      </p>
       <ol>
         {% for legislation in legislations %}
           <li>

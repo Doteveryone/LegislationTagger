@@ -3,7 +3,10 @@
 {% block content %}
   <section class="row expanded">
     <div class="small-12 large-8 columns">
-      <h2>Legislation tagged so far</h2>
+      <h2>Browse tagged legislation</h2>
+      <p>
+        Below are tags that have been added to legislation so far. If you are looking for a specific piece of legislation, please try <a href="{{url_for('search')}}">searching</a>.
+      </p>
         {% for tag in tags %}
           {% if loop.first or (tags[loop.index0 - 1].key !=  tags[loop.index0].key) %}
               <h3>{{tag.key}}</h3>
